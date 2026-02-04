@@ -1,0 +1,29 @@
+name: Docs Validation
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate required files
+        run: |
+          test -f README.md
+          test -f README.en.md
+          test -f SKILL.md
+
+      - name: Validate Magalu CLI documentation link
+        run: |
+          grep -R "docs.magalu.cloud/docs/devops-tools/cli-mgc/overview" .
+
+      - name: Block incorrect docs links
+        run: |
+          if grep -R "magalu.cloud/docs" . | grep -v "docs.magalu.cloud"; then
+            echo "Found deprecated links!"
+            exit 1
+          fi
