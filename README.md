@@ -1,43 +1,58 @@
-# Antigravity Skill: Magalu Cloud
+# Magalu Cloud
 
-Esta é uma **Skill** personalizada para o ecossistema Google Antigravity (e compatíveis como Cursor/Windsurf), permitindo que seu agente de IA gerencie recursos diretamente na **Magalu Cloud**.
+Esta skill integra o ecossistema Antigravity para orientar o gerenciamento de recursos na **Magalu Cloud** através da CLI oficial (`mgc`).
 
-## 🚀 Funcionalidades
+**Nota**: Esta skill **não executa** comandos diretamente no ambiente do usuário. Ela atua como um assistente especialista, sugerindo e gerando os comandos corretos da CLI `mgc` baseados na intenção do usuário.
 
-Com esta skill, seu agente pode:
-- **Gerenciar VMs**: Listar, criar, iniciar e parar instâncias virtuais.
-- **Object Storage**: Criar buckets e fazer upload de arquivos.
-- **Kubernetes**: Listar clusters e configurar acesso kubeconfig.
-- **Autenticação**: Verificar status e realizar login na CLI.
+## Overview
 
-## 📦 Como Instalar
+A skill Magalu Cloud capacita seu agente de IA a entender a arquitetura e os comandos da nuvem Magalu, facilitando operações de DevOps, provisionamento de infraestrutura e gerenciamento de armazenamento.
 
-### Opção 1: Clonar diretamente na pasta de skills
-Se você já usa o Antigravity ou dev-skills-toolkit:
+## Features
+
+- **Virtual Machines**: Orientação para listar, criar, iniciar e parar instâncias.
+- **Object Storage**: Comandos para gerenciamento de buckets e upload de objetos.
+- **Kubernetes**: Auxílio na listagem de clusters e configuração de `kubeconfig`.
+- **Autenticação**: Verificação de status e fluxo de login.
+
+## Installation
+
+### Opção 1: Git Clone
+Clone este repositório dentro da sua pasta de skills do Antigravity:
 
 ```bash
-cd ~/.agent/skills
-git clone https://github.com/SEU_USUARIO/antigravity-magalu-cloud.git magalu-cloud
+git clone https://github.com/SRE-ARCHITECT/antigravity-magalu-cl.git magalu-cloud
 ```
 
-### Opção 2: Cópia manual
-Copie a pasta `magalu-cloud` deste repositório para o diretório de skills do seu agente (geralmente `~/.agent/skills` ou `./.agent/skills` no seu projeto).
+### Opção 2: Download Manual
+Baixe o conteúdo deste repositório e coloque na pasta `skills/magalu-cloud` do seu ambiente Antigravity.
 
-## 🛠️ Pré-requisitos
+## Prerequisites
 
-1. **Magalu Cloud CLI (`mgc`)**: Você precisa ter a ferramenta de linha de comando da Magalu instalada.
-   - [Documentação Oficial da CLI](https://magalu.cloud/docs)
-2. **Autenticação**: Execute `mgc auth login` no seu terminal antes de pedir tarefas ao agente.
+Para utilizar as sugestões desta skill, você precisa ter:
 
-## 💡 Exemplos de Prompts
+1. **Magalu Cloud CLI (`mgc`)** instalada.
+   - [Instalação e Visão Geral](https://docs.magalu.cloud/docs/devops-tools/cli-mgc/overview/)
+2. Credenciais ativas configuradas via `mgc auth login`.
 
-- "Liste minhas máquinas virtuais na Magalu Cloud"
-- "Crie um bucket chamado 'backup-projeto-alpha' na magalu"
-- "Faça o deploy dessa aplicação usando uma nova instância small na Magalu"
+## Example Prompts
 
-## 📄 Estrutura
+- "Como listo minhas máquinas virtuais na Magalu Cloud?"
+- "Gere o comando para criar um bucket chamado 'meu-backup-2024'."
+- "Preciso acessar meu cluster Kubernetes, qual o comando?"
+- "Estou logado na CLI? Como verifico?"
 
-- `SKILL.md`: O arquivo de definição que ensina o agente (prompts e instruções).
+## Repository Structure
 
----
-*Desenvolvido com ❤️ para a comunidade brasileira de Cloud.*
+```
+magalu-cloud/
+├── README.md        # Documentação principal (PT-BR)
+├── README.en.md     # Documentation (English)
+├── SKILL.md         # Definição técnica da skill e prompts
+├── LICENSE          # Licença de uso
+└── thumbnail.png    # Identidade visual da skill
+```
+
+## License
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
